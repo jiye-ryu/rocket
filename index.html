@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>우주항공센터</title>
+	<style>
+		body{margin: 0;}
+		section {padding: 0; margin: auto;}
+		#bg{background: url(space.png); height: 1000px;}
+		
+		#video{width: 1200px; z-index: 100; margin: auto;}
+		video {width: 100%;}
+		span {display: block; color: red; width: 100%; margin: auto; padding-top: 30px; text-align: center; font-size: 50px; font-family: 'Noto Sans KR', sans-serif; font-weight: 900; height: 200px;}
+		#seconds{width: 900px; animation: big 5s cubic-bezier(.17,.67,.57,1.01);}
+		@keyframes big{
+			10%, 30%, 50%, 70%, 90% {transform: scale( 1.4 );}
+			20%, 40%, 60%, 80%,  100% {transform: scale( 1 );}
+
+	</style>
+</head>
+<body>
+	<header id="bg">
+		<section>
+			<div id="clock">
+			<span id="seconds">5</span>
+			</div>
+			<div id="video"><video src="rocket.mp4" autoplay loop muted></video></div>
+		</section>
+	</header>
+	<script type="text/javascript">
+
+		alert("로켓을 발사하겠습니까?");
+		timeLeft = 5;
+		var now = new Date();
+
+		function countdown() {
+			timeLeft--;
+			document.getElementById("seconds").innerHTML = String( timeLeft );
+			if (timeLeft > 0) {
+				setTimeout(countdown, 1000);}
+			if (timeLeft == 0) 
+			{ clearTimeout(countdown);
+			document.getElementById("seconds").innerHTML = now + " 발사 성공!!" ;
+			}
+			
+				
+		};
+
+		setTimeout(countdown, 1000);
+
+
+		
+
+	
+
+	</script>
+</body>
+</html>
